@@ -8,6 +8,11 @@ spec:
   selector:
     matchLabels:
       app: capsule-app
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
   template:
     metadata:
       labels:
@@ -18,6 +23,13 @@ spec:
         image: vasuvarshney07/vasu_varshney_fordocker-app:latest
         ports:
         - containerPort: 3000
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "256Mi"
+          limits:
+            cpu: "200m"
+            memory: "512Mi"
         envFrom:
           - configMapRef:
               name: retail-config
