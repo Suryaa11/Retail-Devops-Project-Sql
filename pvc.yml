@@ -4,9 +4,9 @@ metadata:
   name: retail-pvc
   namespace: fitness-ns
 spec:
+  accessModes:
+    - ReadWriteMany
   resources:
     requests:
       storage: 7Gi
-  accessModes:
-    - ReadWriteMany
-  
+      
