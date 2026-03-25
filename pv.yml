@@ -3,7 +3,7 @@ kind: PersistentVolume
 metadata:
   name: retail-pv
 spec:
-  resources:
+  capacity:
     storage: 10Gi
   accessModes:
     - ReadWriteMany
